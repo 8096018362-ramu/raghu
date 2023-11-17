@@ -1,0 +1,15 @@
+<div class="sidebar-wrapper">
+  <div class="logo">
+    <img src="assets/img/angular2-logo.png">
+  </div>
+  <ul class="nav">
+    <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+      <a [routerLink]="[menuItem.path]" style="text-align: center !important;">
+        <!-- <i class="nc-icon {{menuItem.icon}}"></i> -->
+        <img src="{{menuItem.icon}}" class="nc-icon" />
+        <p>{{menuItem.title}}</p>
+      </a>
+    </li>
+  </ul>
+
+</div>

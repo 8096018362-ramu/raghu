@@ -1,0 +1,50 @@
+%card-stats {
+  hr {
+    margin: 5px 15px;
+  }
+}
+
+
+.card-stats {
+  .card-body {
+    padding: 15px 15px 0px;
+
+    .numbers {
+      font-size: 2.5em;
+
+      p {
+        margin-bottom: 0;
+      }
+
+      .card-category {
+        color: #000;
+        font-size: 16px;
+        line-height: 1.4em;
+      }
+    }
+  }
+
+  .card-footer {
+    padding: 0px 15px 15px;
+
+    .stats {
+      color: #000;
+    }
+
+    hr {
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .icon-big {
+    font-size: 3em;
+    min-height: 64px;
+
+    i {
+      line-height: 59px;
+    }
+  }
+
+
+}

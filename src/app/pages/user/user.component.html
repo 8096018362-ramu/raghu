@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card card-plain">
+          <div class="card-header">
+            <h4 class="card-title"> Users</h4>
+            <p class="card-category"> Here showing basic info of users</p>
+          </div>
+          <div class="card-body">
+
+
+
+            <table class="user-table table">
+              <thead>
+                <th>
+                  ID
+                </th>
+                <th>
+                  User Name
+                </th>
+                <th>
+                  Email
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of usersList" style="background-color: #F4F4F4;border-bottom: 6px solid #FFFFFF;">
+                  <ng-container style="margin: 2px !important;">
+                    <td>
+                      {{user.id}} </td>
+                    <td>
+                      {{user.profile.firstName + ' '+ user.profile.lastName}}
+                    </td>
+                    <td>
+                      {{user.profile.email}}
+                    </td>
+                  </ng-container>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

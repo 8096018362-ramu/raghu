@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card" style="height: 100vh;">
+            <div class="card-body">
+                <p>Choose Action</p>
+                <div class="row">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="no-border">
+                            <select class="form-control" [(ngModel)]="selectedAction"
+                                (ngModelChange)="onSelectAction($event)">
+                                <option value="null" disabled>Choose One Action</option>
+                                <option *ngFor="let action of actionsList" [(value)]="action.id">{{action.name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div *ngIf="selectedAction"><br><br>
+                            <!-- <form [formGroup]="actionForm" (ngSubmit)="onSubmit()">
+
+                                <input type="checkbox" formControlName="acceptTerms"
+                                    [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }">&nbsp;
+                                <label style="font-size: 18px;color: black;"> I have agreed to the
+                                    <span style="color: #1E3B28;font-weight: bold;"> {{selectedActionObj?.name}}</span>
+                                    policy.</label><br>
+                                <button type="button" class="btn btn-primary btn-lg btn-block"
+                                    disabled="!this.actionForm.valid">Approve</button>
+                            </form> -->
+
+                            <input type="checkbox" id="action-checkbox" [(ngMode)]="actionBoxStatus1"
+                                (change)="acceptTerms(1)">&nbsp;
+                            <label style="font-size: 18px;color: black;"> I have agreed to the
+                                <span style="color: #1E3B28;font-weight: bold;"> {{selectedActionObj?.name}}</span>
+                                policy.</label><br>
+
+                            <input type="checkbox" id="action-checkbox" [(ngMode)]="actionBoxStatus2"
+                                (change)="acceptTerms(2)">&nbsp;
+                            <label style="font-size: 18px;color: black;"> Are you read all the policy info
+                            </label><br>
+                            <input type="checkbox" id="action-checkbox" [(ngMode)]="actionBoxStatus3"
+                                (change)="acceptTerms(3)">&nbsp;
+                            <label style="font-size: 18px;color: black;"> Are you Acceptted </label><br>
+                            <br>
+                            <div style="text-align: center;">
+                                <button type="button" class="btn btn-primary" [disabled]="getBtnStatus()"
+                                    (click)="submitAction()">Approve </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
