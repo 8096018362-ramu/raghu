@@ -10,6 +10,18 @@ sidebar change color settings
 hr {
     border-bottom: 1px solid #000 !important;
 }
-#action-checkbox{
-    accent-color: red;
+
+#action-checkbox {
+    // accent-color: $theme-color-1;
+    accent-color: #1E3B28;
+}
+.error{
+color: red;
+font-size: smaller;
+}
+.action-card {
+    label {
+        font-size: 14px !important;
+        color: black !important
+    }
 }

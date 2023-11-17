@@ -15,7 +15,6 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AppServices } from "./pages/services/app.services";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { RequestInterceptor } from "./http.interceptor";
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     AdminLayoutComponent
   ],
-  imports: [ReactiveFormsModule, FormsModule,
+  imports: [
     BrowserAnimationsModule,
     RouterModule.forRoot(AppRoutes, {
       useHash: true

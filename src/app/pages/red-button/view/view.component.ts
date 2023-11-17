@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AppServices } from 'app/pages/services/app.services';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
@@ -11,59 +11,58 @@ import { Router } from '@angular/router';
 })
 
 export class RedButtonViewComponent {
-    actionForm: FormGroup;
-    submitted = false;
+    public actionForm: FormGroup;
+    public submitted = false;
     public actionsList: any = [];
-    selectedAction = null;
-    selectedActionObj: any = {};
-    actionBoxStatus1 = false;
+    public selectedActionObj: any = {};
 
-    actionBoxStatus2 = false;
-
-    actionBoxStatus3 = false;
 
     constructor(
         private formBuilder: FormBuilder,
         public appService: AppServices,
         public router: Router
     ) {
-
+        this.actionForm = this.formBuilder.group({
+            actionID: ['', Validators.required],
+            verUserAff: [false, Validators.required],
+            verTWO: [false, Validators.required],
+            verThree: [false, Validators.required],
+            notes: ['', Validators.required]
+        });
     }
 
 
     ngOnInit() {
         //this.loadActions()
-        this.actionsList = [{
-            "id": "1234",
-            "name": "Disable all HES_Clocked_In rules",
-            "description": "This action will allow all users to log into any applicaction regardless of Clocked In status"
-        },
-        {
-            "id": "1235",
-            "name": "Disable an application's HES_Clocked_In rules",
-            "description": "This action will allow all users to log into the selected application regardless of Clocked In status"
-        },
-        {
-            "id": "1236",
-            "name": "Enable all HES_Clocked_In rules",
-            "description": "This will enforce the Clocked In rule for all applications it is assigned to"
-        },
-        {
-            "id": "1238",
-            "name": " Enable application’s HES_Clocked_in",
-            "description": "This will enforce the Clocked In rule for the selected application."
-        },
-        {
-            "id": "1231",
-            "name": "Clear all sessions for a user",
-            "description": "This will clear a user's session and force them to re-authenticate."
-        }]
-        this.actionForm = this.formBuilder.group({
-            acceptTerms: [false, Validators.required]
-        });
+        this.actionsList = [
+            {
+                "id": "1234",
+                "name": "Disable all HES_Clocked_In rules",
+                "description": "This action will allow all users to log into any applicaction regardless of Clocked In status"
+            },
+            {
+                "id": "1235",
+                "name": "Disable an application's HES_Clocked_In rules",
+                "description": "This action will allow all users to log into the selected application regardless of Clocked In status"
+            },
+            {
+                "id": "1236",
+                "name": "Enable all HES_Clocked_In rules",
+                "description": "This will enforce the Clocked In rule for all applications it is assigned to"
+            },
+            {
+                "id": "1238",
+                "name": " Enable application’s HES_Clocked_in",
+                "description": "This will enforce the Clocked In rule for the selected application."
+            },
+            {
+                "id": "1231",
+                "name": "Clear all sessions for a user",
+                "description": "This will clear a user's session and force them to re-authenticate."
+            }]
+
     }
 
-    get f() { return this.actionForm.controls; }
 
     loadActions() {
         this.appService.fetchActons().subscribe((data) => {
@@ -81,43 +80,24 @@ export class RedButtonViewComponent {
         })
     }
 
-    acceptTerms(id) {
-        if (id == 1) {
-            this.actionBoxStatus1 = !this.actionBoxStatus1
 
-        } else if (id == 2) {
-            this.actionBoxStatus2 = !this.actionBoxStatus2
-
-        } else if (id == 3) {
-            this.actionBoxStatus3 = !this.actionBoxStatus3
-
+    onSubmit() {
+        console.log(this.actionForm.value)
+        let obj = this.actionForm.value;
+        let payload = {
+            actionID: obj.actionID,
+            actorID: '',
+            verUserAff: 'true',
+            verTWO: 'true',
+            verThree: 'true',
+            applicationID: '',
+            notes: obj.notes
         }
-    }
-
-    getBtnStatus() {
-        if (this.actionBoxStatus1 && this.actionBoxStatus2 && this.actionBoxStatus3) {
-            return false
-        } else {
-            return true
-        }
-    }
-
-    submitAction() {
-        // let payload = {
-
-        //     "actionID": "string",
-        //     "actorID": "string",
-        //     "verUserAff": "string",
-        //     "verTWO": "string",
-        //     "verThree": "string",
-        //     "applicationID": "string"
-
-        // }
         // this.appService.updateAction({}).subscribe((data) => {
 
         // })
 
-        this.router.navigate(['./dashboard']);
+        //this.router.navigate(['./dashboard']);
 
     }
 

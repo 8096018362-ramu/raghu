@@ -7,7 +7,9 @@ $fill-font-color: rgba(255, 255, 255, 0.8);
 $font-family-sans-serif: 'Montserrat', "Helvetica", Arial, sans-serif;
 $sans-serif-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
 
-$side-bg-color: #1E3B28 !default;
+$theme-color-1:#1E3B28 !default;
+
+$side-bg-color: $theme-color-1 !default;
 $nav-bg-color: #ffffff !default;
 
 $none: 0 !default;
