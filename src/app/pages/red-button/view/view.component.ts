@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AppServices } from 'app/pages/services/app.services';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from "ngx-toastr";
 
 
 @Component({
@@ -18,6 +19,7 @@ export class RedButtonViewComponent {
 
 
     constructor(
+        private toastr: ToastrService,
         private formBuilder: FormBuilder,
         public appService: AppServices,
         public router: Router
@@ -97,7 +99,21 @@ export class RedButtonViewComponent {
 
         // })
 
-        //this.router.navigate(['./dashboard']);
+
+        this.toastr.info(
+            `<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message"><b>${this.selectedActionObj.name}</b> - Action Updated Successfully...</span>`,
+            "",
+            {
+                timeOut: 4000,
+                closeButton: true,
+                enableHtml: true,
+                toastClass: "alert alert-info alert-with-icon",
+                positionClass: "toast-" + 'top' + "-" + 'center'
+            }
+        );
+        setTimeout(() => {
+            this.router.navigate(['./dashboard']);
+        }, 4000);
 
     }
 

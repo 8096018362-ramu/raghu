@@ -13,27 +13,26 @@
 
             <table class="user-table table">
               <thead>
-                <th>
-                  ID
-                </th>
-                <th>
-                  User Name
-                </th>
-                <th>
-                  Email
-                </th>
+
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Last Login</th>
+                <th>Last Updated</th>
+                <th>Actived On</th>
               </thead>
               <tbody>
                 <tr *ngFor="let user of usersList" style="background-color: #F4F4F4;border-bottom: 6px solid #FFFFFF;">
                   <ng-container style="margin: 2px !important;">
-                    <td>
-                      {{user.id}} </td>
+
                     <td>
                       {{user.profile.firstName + ' '+ user.profile.lastName}}
                     </td>
                     <td>
                       {{user.profile.email}}
                     </td>
+                    <td>{{user.lastLogin| date:'dd-M-yyyy H:mm a'}}</td>
+                    <td>{{user.lastUpdated| date:'dd-M-yyyy H:mm a'}}</td>
+                    <td>{{user.activated| date:'dd-M-yyyy H:mm a'}}</td>
                   </ng-container>
                 </tr>
               </tbody>

@@ -14,11 +14,17 @@ hr {
 #action-checkbox {
     // accent-color: $theme-color-1;
     accent-color: #1E3B28;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+
 }
-.error{
-color: red;
-font-size: smaller;
+
+.error {
+    color: red;
+    font-size: smaller;
 }
+
 .action-card {
     label {
         font-size: 14px !important;
