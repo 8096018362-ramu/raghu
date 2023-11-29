@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+//D:\FREELANCING\Raghu\November\src\assets\scss\paper-dashboard\_sidebar-and-main-panel.scss
+sidebar change color settings
+*/
+.body {
+    background-color: #F4F3EF !important;
+}
+
+hr {
+    border-bottom: 1px solid #000 !important;
+}
+#action-checkbox{
+    accent-color: red;
+}

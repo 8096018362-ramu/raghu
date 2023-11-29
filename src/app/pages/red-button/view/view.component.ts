@@ -35,34 +35,7 @@ export class RedButtonViewComponent {
 
 
     ngOnInit() {
-        //this.loadActions()
-        this.actionsList = [
-            {
-                "id": "1234",
-                "name": "Disable all HES_Clocked_In rules",
-                "description": "This action will allow all users to log into any applicaction regardless of Clocked In status"
-            },
-            {
-                "id": "1235",
-                "name": "Disable an application's HES_Clocked_In rules",
-                "description": "This action will allow all users to log into the selected application regardless of Clocked In status"
-            },
-            {
-                "id": "1236",
-                "name": "Enable all HES_Clocked_In rules",
-                "description": "This will enforce the Clocked In rule for all applications it is assigned to"
-            },
-            {
-                "id": "1238",
-                "name": " Enable application’s HES_Clocked_in",
-                "description": "This will enforce the Clocked In rule for the selected application."
-            },
-            {
-                "id": "1231",
-                "name": "Clear all sessions for a user",
-                "description": "This will clear a user's session and force them to re-authenticate."
-            }]
-
+        this.loadActions()
     }
 
 
@@ -73,7 +46,6 @@ export class RedButtonViewComponent {
     }
 
     onSelectAction(event) {
-        console.log(event)
         this.selectedActionObj = {};
         this.actionsList.find((obj) => {
             if (obj.id == event) {
@@ -95,7 +67,7 @@ export class RedButtonViewComponent {
             applicationID: '',
             notes: obj.notes
         }
-        // this.appService.updateAction({}).subscribe((data) => {
+        // this.appService.updateAction(payload).subscribe((data) => {
 
         // })
 

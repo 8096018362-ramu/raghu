@@ -15,6 +15,14 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AppServices } from "./pages/services/app.services";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { RequestInterceptor } from "./http.interceptor";
+import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
+import { OktaAuthOptions } from '@okta/okta-auth-js';
+
+const oktaConfig: OktaAuthOptions = {
+  issuer: 'https://{yourOktaDomain}/oauth2/default',
+  clientId: '{clientId}',
+  redirectUri: window.location.origin + '/callback'
+};
 
 
 @NgModule({
